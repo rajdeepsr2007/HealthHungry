@@ -1,0 +1,20 @@
+.alert{
+    padding: 0.5rem;
+    border-radius: 20px;
+    color : white;
+    min-width : 15rem;
+    width: auto;
+    margin: 1rem 0;
+    transform: scale(0);
+    font-size: 0.9rem;
+}
+.error{
+    background: rgb(201, 70, 70);
+    transform: scale(1);
+    transition: 2s;
+}
+.success{
+    background: rgb(148, 207, 148);
+    transform: scale(1);
+    transition: 2s;
+}
