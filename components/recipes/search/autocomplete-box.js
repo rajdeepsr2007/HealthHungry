@@ -1,5 +1,5 @@
 import { capitalize } from '@material-ui/core';
-import classes from './autocomplete-box.module.css'
+import classes from './autocomplete-box.module.css';
 
 function AutoComplete(props){
 
@@ -8,7 +8,8 @@ function AutoComplete(props){
         return (<div 
         key={recipe.id}
         className={classes.recipe} >
-            {capitalize(recipe.title)}
+            <img src={`https://spoonacular.com/recipeImages/${recipe.id}-90x90.${recipe.imageType}`} height='30px' width='30px' />
+            <div className={classes.name} >{capitalize(recipe.title)}</div>
         </div>)
     });
     const boxClasses = [classes.box];

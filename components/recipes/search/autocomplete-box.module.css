@@ -13,9 +13,11 @@
 }
 .box .recipe{
     padding: 1rem;
-    text-align: center;
     border-bottom: 1px solid rgb(243, 238, 238);
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .box .recipe:hover{
     background: rgb(248, 247, 247);
@@ -23,4 +25,12 @@
 .box.hide{
     transform: scaleY(0);
     transition: 0.2s;
+}
+.box .recipe img{
+    margin: 0 2rem;
+}
+.box .recipe .name{
+    flex-grow: 1;
+    text-align: center;
+    overflow: hidden;
 }
