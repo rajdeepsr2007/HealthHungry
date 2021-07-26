@@ -11,6 +11,9 @@ export default NextAuth({
     callbacks : {
         async signIn( user , account , profile ){
             
+            if( account.type === 'credentials' )
+                return true;
+            
             if( account.provider !== 'google' || !profile.verified_email )
                 return false;
 
@@ -28,8 +31,7 @@ export default NextAuth({
             if( response.ok )
                 return true;
             return false;          
-            
-            }
+        }
     },
 
     providers : [

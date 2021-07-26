@@ -1,13 +1,16 @@
-.header{
+.sideBar{
     position: fixed;
     top : 0;
-    width: 100%;
-    height: 3.6rem;
-    background : #8bc840;
+    left : 0;
+    height: 100%;
+    width: 20rem;
+    background : linear-gradient(black , grey);
     display: flex;
-    justify-content: flex-start;
+    flex-flow: column;
+    justify-content: space-around;
     align-items: center;
-    padding: 0 2rem;
+    padding: 2rem;
+    opacity: 80%;
 }
 .content{
     width: 100%;
@@ -16,4 +19,13 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+.sideBar .logo{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width : 100%;
+    font-weight: lighter;
+    font-size: 1.5rem;
 }

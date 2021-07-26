@@ -3,7 +3,7 @@ import { getSession, signOut } from "next-auth/client";
 
 export default function Home() {
     return (
-        <button onClick={signOut} ></button>
+      <h1>Home</h1>
     )
 }
 
@@ -21,5 +21,4 @@ export async function getServerSideProps(context){
 
   return {props : {}};
 }
-
 
