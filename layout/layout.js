@@ -30,12 +30,12 @@ function Layout(props){
     let content = null;
     if( showLayout ){
         content = (
-            <Fragment>
+            <div className={classes.layout}>
                 {sideBar}
                 <main className={classes.content} >
                     {props.children}
                 </main>
-            </Fragment>
+            </div>
         )
     }else{
         content = (

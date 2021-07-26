@@ -1,0 +1,26 @@
+.box{
+    width : 48%;
+    position: absolute;
+    top : 4rem;
+    left: 20%;
+    height:auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 1px rgb(243, 240, 240);
+    background: white;
+    overflow: hidden;
+    transform: scaleY(1);
+    transition: 0.2s;
+}
+.box .recipe{
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgb(243, 238, 238);
+    cursor: pointer;
+}
+.box .recipe:hover{
+    background: rgb(248, 247, 247);
+}
+.box.hide{
+    transform: scaleY(0);
+    transition: 0.2s;
+}

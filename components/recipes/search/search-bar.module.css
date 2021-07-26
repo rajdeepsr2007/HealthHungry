@@ -1,0 +1,19 @@
+.bar{
+    width : 100%;
+    background: rgb(241, 245, 241);
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+}
+.bar input{
+    width: 50%;
+    outline: none;
+    line-height: 2.0rem;
+    font-size: 1.1rem;
+    border: 0px;
+    border-radius: 20px;
+    padding: 0 1rem;
+    text-align: center;
+    color: rgb(84, 146, 84);
+    margin: 0 2rem;
+}

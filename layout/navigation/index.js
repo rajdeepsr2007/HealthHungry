@@ -16,7 +16,7 @@ function Navigation(){
                 navigationObjects.map( navObject => {
                     const linkClasses = [classes.link];
                     router.pathname === navObject.href ? linkClasses.push(classes.active) : null;
-                    return ( <Link href={navObject.href} passHref>
+                    return ( <Link key={navObject.href} href={navObject.href} passHref>
                                 <a className={linkClasses.join(' ')}>
                                     {navObject.label}
                                 </a>
