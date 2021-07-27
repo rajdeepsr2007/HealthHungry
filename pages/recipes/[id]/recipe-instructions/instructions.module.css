@@ -1,0 +1,14 @@
+.instructions{
+    height: auto;
+    min-height: 10rem;
+    width: 70%;
+    text-align: center;
+    margin-top: 2rem;
+    overflow-wrap: break-word;
+}
+
+@media (max-width : 900px){
+    .instructions{
+        width: 100%;
+    }
+}

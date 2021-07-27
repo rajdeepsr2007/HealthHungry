@@ -17,8 +17,8 @@ function Recipes(){
         show : false
     });
 
+
     function showHideAutoComplete(show){
-        console.log(show);
         setAutoComplete({ ...autoComplete , show })
     }
 

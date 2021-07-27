@@ -1,6 +1,8 @@
 import { Provider, useSession } from 'next-auth/client'
 import Layout from '../layout/layout'
-import '../styles/globals.css'
+import '../styles/globals.css';
+
+
 
 function MyApp({ Component, pageProps }) {
 

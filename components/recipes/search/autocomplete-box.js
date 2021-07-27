@@ -1,4 +1,5 @@
 import { capitalize } from '@material-ui/core';
+import router from 'next/router';
 import classes from './autocomplete-box.module.css';
 
 function AutoComplete(props){
@@ -7,6 +8,7 @@ function AutoComplete(props){
     const recipeNames = recipes.map( recipe => {
         return (<div 
         key={recipe.id}
+        onClick={() => router.replace(`/recipes/${recipe.id}`)}
         className={classes.recipe} >
             <img src={`https://spoonacular.com/recipeImages/${recipe.id}-90x90.${recipe.imageType}`} height='30px' width='30px' />
             <div className={classes.name} >{capitalize(recipe.title)}</div>
