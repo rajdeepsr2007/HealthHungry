@@ -8,6 +8,7 @@ import RecipeTitle from "../../../components/recipes/recipe/title/recipe-title";
 import RecipeImage from "../../../components/recipes/recipe/image/recipe-image";
 import RecipeToggler from "../../../components/recipes/options toggler";
 import RecipeInstructions from "./recipe-instructions";
+import RecipeVideos from "./recipe-videos";
 
 function Recipe(props){
 
@@ -15,7 +16,9 @@ function Recipe(props){
     const [loading , setLoading] = useState(true);
     const [error , setError] = useState(null);
     const [page , setPage] = useState('Instructions');
-    const [instructions , setInstructions] = useState(null)
+    const [instructions , setInstructions] = useState(null);
+    const [videos , setVideos] = useState(null)
+
     const router = useRouter();
 
     function onToggle(page){
@@ -24,6 +27,10 @@ function Recipe(props){
 
     const setRecipeInstructions = (recipeInstructions) => {
         setInstructions( recipeInstructions );  
+    }
+
+    const setRecipeVideos = (recipeVideos) => {
+        setVideos(recipeVideos);
     }
 
     useEffect(async () => {
@@ -45,7 +52,7 @@ function Recipe(props){
             </Alert>
         )
     }
-    if(loading)
+    if(loading || !recipeInformation)
         return <div><Loader /><Spinner /></div>
 
     let variableContent = null;
@@ -55,6 +62,13 @@ function Recipe(props){
                            recipeId={recipeInformation.id}
                            setRecipeInstructions={setRecipeInstructions}
                            />
+    else if( page === 'Videos' )
+        variableContent = <RecipeVideos 
+                            videos={videos}
+                            recipeId={recipeInformation.id}
+                            setRecipeVideos={setRecipeVideos}
+                            query={recipeInformation.title}
+                          />
              
 
     return(

@@ -1,7 +1,7 @@
 .item{
     border: 1px solid rgb(199, 195, 195);
     min-height: 10rem;
-    margin-top: 2rem;
+    margin: 2rem 0;
     padding: 2rem;
 }
 

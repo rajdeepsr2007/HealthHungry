@@ -11,3 +11,9 @@ export const getRecipeInformationURL = (id) => {
 export const getRecipeInstructionsURL = (id) => {
     return `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${API_KEY}`
 }
+
+export const getRecipeVideosURL = (query , number=10) => {
+    let formattedQuery=query.split(' ');
+    formattedQuery=formattedQuery[0];
+    return `https://api.spoonacular.com/food/videos/search?apiKey=${API_KEY}&query=${formattedQuery}&number=${number}`
+}

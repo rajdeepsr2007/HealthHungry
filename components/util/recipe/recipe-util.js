@@ -1,7 +1,7 @@
 import { green } from "@material-ui/core/colors";
+import Ingredient from "../../recipes/recipe/ingredient";
 
 export const parseRecipeInstructionStep = (step) => {
-    console.log(step);
     const ingredients = {};
     const equipments = {};
 
@@ -37,7 +37,7 @@ export const parseRecipeInstructionStep = (step) => {
             stepObjects.push(<span> {word}</span>)
 
         if( id )
-            stepObjects.push(<b style={{ color : 'green' , cursor : 'pointer' }} > {ingredients[id].name}{remaining}</b>)
+            stepObjects.push(<Ingredient ingredient={ingredients[id]} word={ingredients[id].name+remaining} />)
     }
 
     return stepObjects;
