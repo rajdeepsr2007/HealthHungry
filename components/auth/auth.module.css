@@ -37,4 +37,7 @@
     .auth .form h1{
         font-size: 2rem;
     }
+    .auth .info{
+        width: 100%;
+    }
 }

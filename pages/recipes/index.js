@@ -2,9 +2,9 @@ import { getSession } from "next-auth/client";
 import { Fragment, useState } from "react";
 import AutoComplete from "../../components/recipes/search/autocomplete-box";
 import SearchBar from "../../components/recipes/search/search-bar";
-import { searchAutoComplete } from "./util";
+import { searchAutoComplete , getRandomRecipes } from "./util";
 
-function Recipes(){
+function Recipes(props){
 
     const [searchControl , setSearchControl] = useState({
         value : '',
@@ -16,6 +16,10 @@ function Recipes(){
         recipes : [],
         show : false
     });
+
+    console.log(props);
+
+    const [recipes , setRecipes] = useState(props.recipes);
 
 
     function showHideAutoComplete(show){
@@ -54,19 +58,15 @@ function Recipes(){
     )
 }
 
-export async function getServerSideProps(context){
-    const session = await getSession({ req : context.req });
-  
-    if( !session ){
-      return{
-        redirect : {
-          destination : '/auth',
-          permanent : false
-        }
-      }
+export async function getStaticProps(){
+
+    try{
+        const recipes = await getRandomRecipes();
+        return {props:{ recipes } , revalidate : 60*60*24}
+    }catch(error){
+        return {props : { error : error.message }}
     }
-  
-    return {props : {}};
-  }
+    
+}
 
 export default Recipes;

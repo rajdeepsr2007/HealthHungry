@@ -43,3 +43,7 @@ export const parseRecipeInstructionStep = (step) => {
     return stepObjects;
     // return stepObject;
 }
+
+export const getRecipeImage = (recipe , size='480x360') => {
+    return `https://spoonacular.com/recipeImages/${recipe.id}-${size}.${recipe.imageType}`
+}

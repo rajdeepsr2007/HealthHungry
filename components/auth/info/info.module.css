@@ -1,4 +1,31 @@
 .info{
     width: 100%;
     height: 100%;
+    background: url('../../../assets/background.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20rem;
+}
+.info .fact{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    border: white;
+    background: white;
+    opacity: 70%;
+    border-radius: 20px;
+    transform : translateX(-800px);
+}
+.info .fact.show{
+    transform: translateX(0);
+    transition: 5s;
+}
+
+.fact.show{
+    text-align: center;
+    font-size: 1.2rem;
+    padding : 2rem;
+    font-weight: bold;
+    color: rgb(62, 202, 62);
 }

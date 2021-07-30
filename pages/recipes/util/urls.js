@@ -1,3 +1,4 @@
+import { getSimilarRecipes } from ".";
 import API_KEY from "../../../apiKey";
 
 export const getAutoCompleteUrl = (query , number=5) => {
@@ -17,3 +18,15 @@ export const getRecipeVideosURL = (query , number=10) => {
     formattedQuery=formattedQuery[0];
     return `https://api.spoonacular.com/food/videos/search?apiKey=${API_KEY}&query=${formattedQuery}&number=${number}`
 }
+
+export const getRandomFoodFactsURL = () => {
+    return `https://api.spoonacular.com/food/trivia/random?apiKey=${API_KEY}`
+}
+
+export const getRandomRecipesURL = (number=15) => {
+    return `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=${number}`
+}
+
+export const getSimilarRecipesURL = (id , number=8) => {
+    return `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${API_KEY}&number=${number}`
+} 

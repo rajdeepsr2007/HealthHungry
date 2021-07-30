@@ -9,6 +9,7 @@ import RecipeImage from "../../../components/recipes/recipe/image/recipe-image";
 import RecipeToggler from "../../../components/recipes/options toggler";
 import RecipeInstructions from "./recipe-instructions";
 import RecipeVideos from "./recipe-videos";
+import SimilarRecipes from "./recipe-similar";
 
 function Recipe(props){
 
@@ -17,7 +18,9 @@ function Recipe(props){
     const [error , setError] = useState(null);
     const [page , setPage] = useState('Instructions');
     const [instructions , setInstructions] = useState(null);
-    const [videos , setVideos] = useState(null)
+    const [videos , setVideos] = useState(null);
+    const [similar , setSimilar] = useState(null);
+
 
     const router = useRouter();
 
@@ -33,6 +36,10 @@ function Recipe(props){
         setVideos(recipeVideos);
     }
 
+    const setSimilarRecipes = (similarRecipes) => {
+        setSimilar( similarRecipes );
+    }
+
     useEffect(async () => {
         const id = router.query.id;
         try{
@@ -44,6 +51,7 @@ function Recipe(props){
             setError(error.message);
         } 
     },[]);
+
 
     if( error ){
         return(
@@ -69,6 +77,12 @@ function Recipe(props){
                             setRecipeVideos={setRecipeVideos}
                             query={recipeInformation.title}
                           />
+    else
+        variableContent = <SimilarRecipes 
+                            recipeId={recipeInformation.id}
+                            recipes={similar}
+                            setSimilarRecipes={setSimilarRecipes}
+                          />
              
 
     return(
@@ -82,5 +96,7 @@ function Recipe(props){
         </Fragment>
     )
 }
+
+
 
 export default Recipe;

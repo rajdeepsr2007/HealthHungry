@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getSession } from 'next-auth/client';
 import { signIn } from "next-auth/client";
 import { useRouter } from 'next/router';
 import AuthForm from "../../components/auth/auth-form";
+import { getRandomFoodFacts } from "./util";
 
 async function signupUser( email , username , password ){
 
@@ -21,14 +22,21 @@ async function signupUser( email , username , password ){
     return data;
 }
 
-function Auth(){
+function Auth(props){
 
     const [isLogin , setIsLogin] = useState(true);
     const [loading , setLoading] = useState(false);
     const [error , setError ] = useState(null);
     const [success , setSuccess] = useState(null);
-
+    const facts = props.facts;
     const router = useRouter();
+
+    useEffect(async () => {
+        const session = await getSession();
+        if( session )
+            router.replace('/recipes');
+    },[])
+
 
     async function loginHandler( username , password , type ){
 
@@ -85,23 +93,18 @@ function Auth(){
         onSignup={signupHandler}
         message={error}
         success={success}
+        facts={facts}
         />
     )
 }
 
-export async function getServerSideProps(context){
-
-    const session = await getSession({ req : context.req });
-    if( session ){
-        return{
-            redirect : {
-                destination : '/',
-                permanent : true
-            }
-        }
+export async function getStaticProps(){
+    try{
+        const facts = await getRandomFoodFacts();
+        return { props : {facts} , revalidate : (60*60*24) }
+    }catch(error){
+        return {props:{ facts : [] } , revalidate : (60*60*24)}
     }
-
-    return {props:{}};
 }
 
 export default Auth;
