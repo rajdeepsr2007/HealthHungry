@@ -1,0 +1,24 @@
+.info{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 2rem;
+    height: auto;
+    text-align: center;
+}
+.info .summary{
+    width: 100%;
+    text-align: left;
+}
+.info .summary b{
+    color: green;
+    padding: 1rem;
+}
+.info .summary{
+    padding: 1rem;
+}
+@media (max-width:900px){
+    .info{
+        margin: 2rem 0;
+    }
+}

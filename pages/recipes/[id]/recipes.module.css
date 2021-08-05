@@ -1,0 +1,13 @@
+.info{
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width : 900px){
+    .info{
+        flex-wrap: wrap;
+        padding: 0;
+    }
+}

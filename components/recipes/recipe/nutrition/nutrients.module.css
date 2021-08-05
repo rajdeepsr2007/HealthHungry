@@ -1,0 +1,27 @@
+.nutrients{
+    width: 90%;
+    height: auto;
+    min-height: 5rem;
+    display: flex;
+    padding: 2rem 5rem;
+    flex-flow: column;
+    text-align: center;
+}
+
+.nutrients .good,.nutrients .bad{
+    height: auto;
+    width: 100%;
+}
+.bad h2{
+    color: rgb(153, 90, 90);
+}
+.good h2{
+    color: rgb(110, 159, 199);
+}
+
+@media (max-width:900px){
+    .nutrients{
+        width: 100%;
+        padding: 2rem;
+    }
+}

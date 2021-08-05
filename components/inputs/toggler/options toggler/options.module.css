@@ -14,9 +14,10 @@
     align-items: center;
     background: rgb(145, 199, 125);
     color: white;
+    transition: 0.5s;
 }
 
 .options a.active{
     background: rgb(45, 99, 20);
-
+    transition: 0.5s;
 }

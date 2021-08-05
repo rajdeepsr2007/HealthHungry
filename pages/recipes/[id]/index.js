@@ -6,10 +6,15 @@ import { getRecipeInformation } from "../util";
 import Alert from "../../../components/feedbacks/alert/alert";
 import RecipeTitle from "../../../components/recipes/recipe/title/recipe-title";
 import RecipeImage from "../../../components/recipes/recipe/image/recipe-image";
-import RecipeToggler from "../../../components/recipes/options toggler";
+import RecipeToggler from "../../../components/inputs/toggler/options toggler";
 import RecipeInstructions from "./recipe-instructions";
 import RecipeVideos from "./recipe-videos";
 import SimilarRecipes from "./recipe-similar";
+import Nutrition from "../../../components/recipes/recipe/nutrition";
+import IngredientsBadge from "../../../components/Badge/ingredients/ingredients";
+import classes from './recipes.module.css';
+import RecipeInfo from "../../../components/recipes/recipe/info";
+
 
 function Recipe(props){
 
@@ -20,7 +25,6 @@ function Recipe(props){
     const [instructions , setInstructions] = useState(null);
     const [videos , setVideos] = useState(null);
     const [similar , setSimilar] = useState(null);
-
 
     const router = useRouter();
 
@@ -49,9 +53,8 @@ function Recipe(props){
         }catch(error){
             setLoading(false);
             setError(error.message);
-        } 
+        }
     },[]);
-
 
     if( error ){
         return(
@@ -77,21 +80,29 @@ function Recipe(props){
                             setRecipeVideos={setRecipeVideos}
                             query={recipeInformation.title}
                           />
-    else
+    else if( page === 'Similar Recipes' )
         variableContent = <SimilarRecipes 
                             recipeId={recipeInformation.id}
                             recipes={similar}
                             setSimilarRecipes={setSimilarRecipes}
                           />
-             
+    else 
+        variableContent = <Nutrition 
+                            nutrients={recipeInformation.nutrition.nutrients}
+                          />
 
     return(
         <Fragment>
             <RecipeTitle title={recipeInformation.title}/>
-            <div style={{  width : '100%' , padding : '2rem' }} >
+            <div className={classes.info} >
                 <RecipeImage image={recipeInformation.image}/>
+                <RecipeInfo 
+                ingredients={recipeInformation.extendedIngredients} 
+                summary={recipeInformation.summary}
+                recipeId={recipeInformation.id}
+                />
             </div>
-            <RecipeToggler id={recipeInformation.id} onToggle={onToggle} />
+            <RecipeToggler id={recipeInformation.id} onToggle={onToggle} page={page} />
             {variableContent}
         </Fragment>
     )

@@ -30,3 +30,7 @@ export const getRandomRecipesURL = (number=15) => {
 export const getSimilarRecipesURL = (id , number=8) => {
     return `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${API_KEY}&number=${number}`
 } 
+
+export const getRecipeTasteURL = (id) => {
+    return `https://api.spoonacular.com/recipes/${id}/tasteWidget?apiKey=${API_KEY}`
+}

@@ -1,0 +1,25 @@
+@keyframes expand{
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+    }
+}
+
+.bar{
+    height: 1.5rem;
+    margin: 0.8rem 0;
+    animation: expand 1s 0s 1 ease-in-out;
+    background: rgb(212, 153, 153);
+    margin-right: 2rem;
+    font-size: 0.8rem;
+    color: white;
+    padding-top: 0.2rem;
+}
+.details{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}

@@ -7,7 +7,8 @@ function Navigation(){
     const router = useRouter();
 
     const navigationObjects = [
-        { label : 'Recipes' , href : '/recipes' }
+        { label : 'Recipes' , href : '/recipes' },
+        { label : 'What\'s in my Fridge ?' , href : '/wimf' }
     ]
 
     const navigation = (
