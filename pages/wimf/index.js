@@ -1,9 +1,10 @@
-import { Fragment, useState } from "react";
+import { useState , Fragment } from "react";
 import AutoComplete from "../../components/inputs/search/autocomplete-box";
 import SearchBar from "../../components/inputs/search/search-bar";
-import { searchAutoComplete , getRandomRecipes } from "./util";
+import Title from "../../components/UI/Title";
+import { searchAutoComplete } from "./util";
 
-function Recipes(props){
+export default function WIMF(){
 
     const [searchControl , setSearchControl] = useState({
         value : '',
@@ -15,10 +16,6 @@ function Recipes(props){
         items : [],
         show : false
     });
-
-
-    const [recipes , setRecipes] = useState(props.recipes);
-
 
     function showHideAutoComplete(show){
         setAutoComplete({ ...autoComplete , show })
@@ -32,7 +29,7 @@ function Recipes(props){
         if( value !== '' ){
             updatedSearchControl.timeout = setTimeout(async () => {
                 try{
-                    const data = await searchAutoComplete(value);
+                    const data = await searchAutoComplete(value)
                     setAutoComplete({ value , items : data , show : true });
                 }catch(error){
                     console.log(error.message);
@@ -44,28 +41,18 @@ function Recipes(props){
 
     return(
         <Fragment>
-            <SearchBar 
+            <Title>
+                What's In My Fridge ?
+            </Title>
+            <SearchBar
             value={searchControl.value}
             onSearchChange={onSearchChange}
             showHideAutoComplete={showHideAutoComplete}
-            showSearchButton
             />
-            <AutoComplete 
+            <AutoComplete
             autoComplete={autoComplete}
+            type='Ingredients'
             />
-        </Fragment>    
+        </Fragment>
     )
 }
-
-export async function getStaticProps(){
-
-    try{
-        const recipes = await getRandomRecipes();
-        return {props:{ recipes } , revalidate : 60*60*24}
-    }catch(error){
-        return {props : { error : error.message }}
-    }
-    
-}
-
-export default Recipes;

@@ -1,4 +1,4 @@
-import Button from '../../inputs/button/button';
+import Button from '../button/button';
 import classes from './search-bar.module.css';
 
 function SearchBar(props){
@@ -13,10 +13,10 @@ function SearchBar(props){
             onBlur={() => props.showHideAutoComplete(false)}
             onFocus={() => props.showHideAutoComplete(true)}
             />
-            <Button 
+            {props.showSearchButton ? <Button 
             style={{ width : '10rem' , height : '3rem' }} >
                 Go
-            </Button> 
+            </Button> : null} 
         </div>   
     )
 

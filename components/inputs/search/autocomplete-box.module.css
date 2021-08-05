@@ -12,7 +12,7 @@
     transform: scaleY(1);
     transition: 0.2s;
 }
-.box .recipe{
+.box .item{
     padding: 1rem;
     border-bottom: 1px solid rgb(243, 238, 238);
     cursor: pointer;
@@ -20,17 +20,17 @@
     justify-content: space-between;
     align-items: center;
 }
-.box .recipe:hover{
+.box .item:hover{
     background: rgb(248, 247, 247);
 }
 .box.hide{
     transform: scaleY(0);
     transition: 0.2s;
 }
-.box .recipe img{
+.box .item img{
     margin: 0 2rem;
 }
-.box .recipe .name{
+.box .item .name{
     flex-grow: 1;
     text-align: center;
     overflow: hidden;
