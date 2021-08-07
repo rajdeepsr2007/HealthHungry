@@ -11,9 +11,9 @@ import RecipeInstructions from "./recipe-instructions";
 import RecipeVideos from "./recipe-videos";
 import SimilarRecipes from "./recipe-similar";
 import Nutrition from "../../../components/recipes/recipe/nutrition";
-import IngredientsBadge from "../../../components/Badge/ingredients/ingredients";
 import classes from './recipes.module.css';
 import RecipeInfo from "../../../components/recipes/recipe/info";
+import Review from "../../../components/review";
 
 
 function Recipe(props){
@@ -103,7 +103,10 @@ function Recipe(props){
                 />
             </div>
             <RecipeToggler id={recipeInformation.id} onToggle={onToggle} page={page} />
-            {variableContent}
+            <div style={{ width : '100%' , display : 'flex' , justifyContent : 'center'}} >
+                {variableContent}
+            </div>
+            <Review />
         </Fragment>
     )
 }

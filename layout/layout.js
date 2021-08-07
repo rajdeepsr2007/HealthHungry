@@ -1,6 +1,5 @@
 import { signOut } from 'next-auth/client';
 import { useRouter } from 'next/router';
-import { Fragment} from 'react';
 import Button from '../components/inputs/button/button';
 import Logo from '../components/logo/logo';
 import classes from './layout.module.css';

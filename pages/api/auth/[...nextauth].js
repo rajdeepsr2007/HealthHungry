@@ -50,7 +50,7 @@ export default NextAuth({
                     throw new Error(data.message || 'Invalid Credentials');
                 }
                 const { user } = data;
-                return { _id : user._id };
+                return { _id : user._id , image : user.image };
             }
         }),
 

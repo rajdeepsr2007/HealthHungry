@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect , useState } from 'react';
+import { getSession } from 'next-auth/client';
 import classes from './navigation.module.css';
 
 function Navigation(){
 
     const router = useRouter();
-
+    
     const navigationObjects = [
         { label : 'Recipes' , href : '/recipes' },
         { label : 'What\'s in my Fridge ?' , href : '/wimf' }

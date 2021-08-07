@@ -21,7 +21,7 @@ function Info(props){
             if( factChangeInterval )
                 clearInterval(factChangeInterval)
         }
-    })
+    },[])
 
     if( facts.facts.length < 1 ){
         return <Spinner />
