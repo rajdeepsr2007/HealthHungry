@@ -1,0 +1,55 @@
+.imagespreview{
+    width: 60%;
+    height: 15rem;
+    /* border: 0.5px solid grey; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 2rem 0;
+    background : #ffffff;
+    box-sizing: border-box;
+    overflow-x: scroll;
+    box-shadow: 0px 0px 10px 2px rgb(204, 201, 201);
+    border-radius: 20px;
+    background: rgb(230, 245, 250);
+}
+
+.imagespreview .image{
+    position: relative;
+    height : 10rem;
+    width : 10rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 1px rgb(219, 217, 217);
+}
+
+.imagespreview .image img{
+    height: inherit;
+    width: inherit;
+    border-radius: 20px;
+}
+
+@media (max-width : 500px){
+    .imagespreview{
+        width: 100%;
+    }
+}
+.image .option{
+    position: absolute;
+    top : 36%;
+    left: 36%;
+    padding: 0.5rem;
+    background: white;
+    opacity: 80%;
+    box-sizing: border-box;
+    color: rgb(216, 69, 69);
+    transition: 0.2s;
+    transform: scale(0);
+    border-radius: 10px;
+}
+.imagespreview .image:hover .option{
+    transform : scale(1);
+    transition: 0.2s;
+}

@@ -10,17 +10,14 @@ export default NextAuth({
 
     callbacks : {
         async signIn( user , account , profile ){
-            
             if( account.type === 'credentials' )
                 return true;
-            
-            if( account.provider !== 'google' || !profile.verified_email )
+            if( account.provider !== 'google' || !profile.verified_email ){
                 return false;
-
+            }
             const username = profile.name;
             const email = user.email;
             const image = user.image;
-
             const response = await fetch(baseURL + '/api/auth/google',{
                 method : 'POST',
                 body : JSON.stringify({ username , email , image }),
@@ -50,7 +47,7 @@ export default NextAuth({
                     throw new Error(data.message || 'Invalid Credentials');
                 }
                 const { user } = data;
-                return { _id : user._id , image : user.image };
+                return {email : user._id};
             }
         }),
 

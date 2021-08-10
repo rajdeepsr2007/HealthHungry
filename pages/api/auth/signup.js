@@ -5,11 +5,6 @@ async function handler( req , res ){
         return;
     }
     const { email , username , password } = req.body;
-    if( !resp.ok ){
-        res.status(422).json(data);
-        return;
-    }
-
     const response = await fetch(baseURL + '/api/auth/signup',{
         method : 'POST' ,
         body : JSON.stringify({ email , username , password }),
