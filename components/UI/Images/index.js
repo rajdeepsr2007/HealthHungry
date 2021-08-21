@@ -7,7 +7,7 @@ export default function Image(props){
     return(
         <Fragment>
             {!loaded ? <ImageLoader height={height} width={width} /> : null }
-            <img style={loaded ? {} : { display : 'none' }} src={src} height={height} width={width} onLoad={() => setLoaded(true)}/>   
+            <img style={loaded ? props.style : { display : 'none' }} src={src} height={height} width={width} onLoad={() => setLoaded(true)}/>   
         </Fragment>
     )
 }

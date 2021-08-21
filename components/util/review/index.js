@@ -24,3 +24,12 @@ export const addReview = async (review,user) => {
         throw new Error(data.message || 'Review upload error')
     }
 }
+
+export const getRecipeReviews = async (recipe) => {
+    const response = await fetch(`${baseURL}/api/review/${recipe}`);
+    const data = await response.json();
+    if( response.ok )
+        return data;
+    else
+        throw new Error(data.message || 'Recipe reviews error');
+}

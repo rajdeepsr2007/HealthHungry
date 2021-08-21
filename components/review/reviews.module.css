@@ -8,3 +8,23 @@
     align-items: center;
     padding: 1rem;
 }
+.reviews .add{
+    width: 12rem;
+    padding: 0.5rem 2rem;
+    margin: 2rem 0;
+    background: rgb(235, 180, 28);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.reviews .allreviews{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0rem;
+}

@@ -106,7 +106,7 @@ function Recipe(props){
             <div style={{ width : '100%' , display : 'flex' , justifyContent : 'center'}} >
                 {variableContent}
             </div>
-            <Review 
+            <Review
             recipeId={recipeInformation.id}
             />
         </Fragment>

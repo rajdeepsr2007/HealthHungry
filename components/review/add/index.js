@@ -1,12 +1,12 @@
-import { Fragment } from "react";
 import { useState } from "react";
-import StarRating from 'react-star-ratings';
 import TextFields from "../../inputs/text-fields/text-fields";
 import Button from '../../inputs/button/button';
 import ImagesInput from "../../inputs/images input/images-input";
 import { addReview } from "../../util/review";
 import Alert from '../../feedbacks/alert/alert';
 import {useSession} from 'next-auth/client';
+import classes from './add.module.css'
+import StarRating from "../../UI/StarRating/star-rating";
 
 export default function AddReview( props ){
 
@@ -52,7 +52,6 @@ export default function AddReview( props ){
         setLoading(true);
         setError(null);
         try{
-            console.log(session);
             const data = await addReview(review,session.user.email);
             setLoading(false);
         }catch(error){
@@ -61,13 +60,19 @@ export default function AddReview( props ){
         }      
     }
 
+    const addClasses = [classes.add];
+    if(props.show)
+        addClasses.push(classes.show)
+    else
+        addClasses.push(classes.hide);
+
     return(
-        <Fragment>
+        <div className={addClasses.join(' ')} >
             <StarRating
             rating={review.rating}
-            starRatedColor="yellow"
             changeRating={onRatingChange}
-            numberOfStars={5}
+            edit
+            size='big'
             />
             <TextFields
             controls={{ title : review.title, description : review.description }}
@@ -79,12 +84,12 @@ export default function AddReview( props ){
             />
             { error ? <Alert type='error'>{error}</Alert> : null }
             <Button
-            style={{ width : '40%' , margin : '2rem 0' }}
+            style={{ width : '40%' , margin : '1rem 0' }}
             onClick={addReviewHandler}
             disabled={loading}
             >
                 Post Review
             </Button>
-        </Fragment>
+        </div>
     )
 }

@@ -1,0 +1,22 @@
+.add{
+    width: 80%;
+    height: auto;
+    transition: 0.5s;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top : 0;
+}
+.add.show{
+   position: unset;
+}
+.add.hide{
+    transform: scaleY(0);
+}
+@media (max-width:900px){
+    .add{
+        width: 100%;
+    }
+}
