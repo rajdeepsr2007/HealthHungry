@@ -25,8 +25,9 @@ export default NextAuth({
                     'Content-Type' : 'application/json'
                 }
             });
+            const data = await response.json();
             if( response.ok )
-                return true;
+                return {email : data.user._id};
             return false;          
         }
     },
