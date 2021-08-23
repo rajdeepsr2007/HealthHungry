@@ -1,0 +1,20 @@
+.ingredients{
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.ingredients .label{
+    padding : 0.5rem 1rem;
+    background: rgb(255, 223, 82);
+    color : white;
+    border-radius: 10px;
+    margin-right: 2rem;
+}
+@media (max-width:900px){
+    .ingredients{
+        padding: 0.5rem;
+    }
+}

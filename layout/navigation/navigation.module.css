@@ -5,8 +5,9 @@
     justify-content: flex-start;
     align-items: center;
     margin-top: 3rem;
-    height: auto;
+    height: 100%;
     flex-grow: 1;
+    box-sizing: border-box;
 }
 .navigation a.link{
     color: white;

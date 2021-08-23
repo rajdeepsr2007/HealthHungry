@@ -15,7 +15,7 @@ function AutoComplete(props){
             itemNames = items.map( item => {
                 return (<div 
                     key={item.id}
-                    onClick={() => {}}
+                    onClick={() => props.onClick(item)}
                     className={classes.item} >
                         <img src={getIngredientImage(item)} height='30px' width='30px' />
                         <div className={classes.name} >{capitalize(item.name)}</div>

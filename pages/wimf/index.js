@@ -1,8 +1,12 @@
+import { useReducer } from "react";
 import { useState , Fragment } from "react";
 import AutoComplete from "../../components/inputs/search/autocomplete-box";
 import SearchBar from "../../components/inputs/search/search-bar";
 import Title from "../../components/UI/Title";
+import Ingredients from "../../components/wimf/ingredients";
+import Recipes from "../../components/wimf/recipes";
 import { searchAutoComplete } from "./util";
+import reducer from "./util/reducer";
 
 export default function WIMF(){
 
@@ -16,6 +20,11 @@ export default function WIMF(){
         items : [],
         show : false
     });
+
+    const [ingredients,dispatchIngredients] = useReducer(
+        reducer,
+        []
+    );
 
     function showHideAutoComplete(show){
         setAutoComplete({ ...autoComplete , show })
@@ -52,7 +61,16 @@ export default function WIMF(){
             <AutoComplete
             autoComplete={autoComplete}
             type='Ingredients'
+            onClick={(item) => dispatchIngredients({ type : 'ADD' , ingredient : item })}
             />
+            <Ingredients 
+            ingredients={ingredients}
+            onRemove={(id) => dispatchIngredients({ type : 'REMOVE' , id })}
+            />
+            <Recipes 
+            ingredients={ingredients}
+            onRemove={(id)=>dispatchIngredients({type : 'REMOVE' ,id})}
+            />   
         </Fragment>
     )
 }
