@@ -1,0 +1,15 @@
+.cards{
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    height: auto;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+@media (max-width:900px){
+    .cards{
+        justify-content: center;
+    }
+}

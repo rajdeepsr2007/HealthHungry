@@ -1,0 +1,61 @@
+.card{
+    width : 45%;
+    height: auto;
+    background: white;
+    min-height: 10rem;
+    border-radius: 10px;
+    margin: 1rem;
+    box-shadow: 0px 0px 10px 2px rgb(160, 159, 159);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+.card img{
+    width : 10rem;
+    height: 10rem;
+}
+
+.card .info{
+    padding : 0.5rem;
+}
+
+@media (max-width : 900px){
+    .card{
+        width: 90%;
+        height: 12rem;
+    }
+}
+
+.card:hover{
+    border: 1px solid rgb(90, 194, 90);
+    transition: 0.5s;
+}
+.card:hover img{
+    opacity: 90%;
+    transition: 0.5s;
+}
+.card .label{
+    padding: 0.3rem 1rem;
+    color: white;
+    background: rgb(51, 197, 51);
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    text-align: center;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.card h5{
+    margin: 0.1rem 0;
+}
+.card .info{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+.card .label:hover{
+    background: rgb(236, 111, 107);
+}

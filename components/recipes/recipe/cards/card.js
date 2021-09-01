@@ -3,6 +3,9 @@ import { getRecipeImage } from '../../../util/recipe/recipe-util';
 import Link from 'next/link';
 import classes from './recipe-cards.module.css';
 import { RoomService, Timer } from '@material-ui/icons';
+import vegIcon from '../../../../assets/images/veg.png';
+import nonVegIcon from '../../../../assets/images/non-veg.png';
+import ImageNext from 'next/image';
 
 const formatTime = (time) => {
     let hr = '' , min = '';
@@ -29,6 +32,20 @@ export default function RecipeCard(props){
                 <div className={classes.info} >
                     <span><Timer /> {formatTime(recipe.readyInMinutes)}</span>
                     <span><RoomService/> {recipe.servings}</span>
+                    <span>{recipe.vegetarian === false ? 
+                            <ImageNext 
+                            src={nonVegIcon}
+                            height='25px'
+                            width='25px'
+                            /> 
+                            : recipe.vegetarian === true ?
+                             <ImageNext 
+                             src={vegIcon}  
+                             height='20px'
+                             width='20px'
+                             /> 
+                             : null }
+                    </span>
                 </div>
             </div>
         </Link>

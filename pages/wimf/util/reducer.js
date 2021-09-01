@@ -4,8 +4,8 @@ export default function reducer( state=initialState , action ){
     switch( action.type ){
         case 'ADD' :
             for( const ingredient of state ){
-                // if( ingredient.id === action.ingredient.id )
-                //     return state;
+                if( ingredient.id === action.ingredient.id )
+                    return state;
                 updatedIngredients.push({
                     ...ingredient
                 })

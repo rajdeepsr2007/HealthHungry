@@ -6,7 +6,7 @@ export default function IngredientBadge(props){
     const {ingredient,removable,onRemove} = props;
     const badge=(
         <div onClick={removable?()=>onRemove(ingredient.id):()=>{}} className={classes.badge} >
-            <Image src={getIngredientImage(ingredient)} />
+            <Image src={ingredient.image && ingredient.image.includes('spoonacular') ? ingredient.image : getIngredientImage(ingredient)} />
             {ingredient.name}
             {removable ? <Cancel style={{marginLeft : '0.5rem'}}/> : null}
         </div>

@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { useState , Fragment } from "react";
+import { useState , useEffect, Fragment } from "react";
 import AutoComplete from "../../components/inputs/search/autocomplete-box";
 import SearchBar from "../../components/inputs/search/search-bar";
 import Title from "../../components/UI/Title";
@@ -7,6 +7,7 @@ import Ingredients from "../../components/wimf/ingredients";
 import Recipes from "../../components/wimf/recipes";
 import { searchAutoComplete } from "./util";
 import reducer from "./util/reducer";
+import { useRouter } from "next/router";
 
 export default function WIMF(){
 
@@ -20,6 +21,14 @@ export default function WIMF(){
         items : [],
         show : false
     });
+
+
+    const router = useRouter();
+    useEffect(() => {
+        router.replace(
+            '/wimf#maui'
+        )
+    },[])
 
     const [ingredients,dispatchIngredients] = useReducer(
         reducer,

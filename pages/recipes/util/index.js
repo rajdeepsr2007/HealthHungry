@@ -60,7 +60,7 @@ export const getSimilarRecipes = async (recipeId) => {
 
 
 export const getRandomRecipes = async () => {
-    return [];
+    // return {recipes : []};
     const response = await fetch(getRandomRecipesURL());
     const data = await response.json();
     if( response.ok ){

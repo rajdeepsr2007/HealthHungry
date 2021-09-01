@@ -1,7 +1,9 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import AutoComplete from "../../components/inputs/search/autocomplete-box";
 import SearchBar from "../../components/inputs/search/search-bar";
+import RecipeCards from "../../components/recipes/recipe/cards";
 import { searchAutoComplete , getRandomRecipes } from "./util";
+import Alert from '../../components/feedbacks/alert/alert'
 
 function Recipes(props){
 
@@ -16,8 +18,19 @@ function Recipes(props){
         show : false
     });
 
+    useEffect(async () => {
+        setError(null);
+        try{
+            const data = await getRandomRecipes();
+            setRecipes(data.recipes);
+        }catch(error){
+            setError(error.message)
+        }
+    },[])
 
-    const [recipes , setRecipes] = useState(props.recipes);
+
+    const [recipes , setRecipes] = useState([]);
+    const [error , setError] = useState(null);
 
 
     function showHideAutoComplete(show){
@@ -35,12 +48,13 @@ function Recipes(props){
                     const data = await searchAutoComplete(value);
                     setAutoComplete({ value , items : data , show : true });
                 }catch(error){
-                    console.log(error.message);
+                    setError(error.message)
                 }
             },2000)
         }
         setSearchControl(updatedSearchControl);
     }
+
 
     return(
         <Fragment>
@@ -53,19 +67,13 @@ function Recipes(props){
             <AutoComplete 
             autoComplete={autoComplete}
             />
+            {
+                 !error && recipes.length > 0  ?   <RecipeCards
+                    recipes={recipes}
+                    /> : <Alert type='error'>{props.error}</Alert>
+            }
         </Fragment>    
     )
-}
-
-export async function getStaticProps(){
-
-    try{
-        const recipes = await getRandomRecipes();
-        return {props:{ recipes } , revalidate : 60*60*24}
-    }catch(error){
-        return {props : { error : error.message }}
-    }
-    
 }
 
 export default Recipes;

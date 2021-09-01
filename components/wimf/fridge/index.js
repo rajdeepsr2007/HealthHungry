@@ -34,8 +34,9 @@ const Fridge = (props) => {
         while( i < ingredients.length ){
             const ingredientsList = [];
             for( let j = 0 ; j < 4 && i < ingredients.length ; i++ , j++ ){
+                const id = ingredients[i].id;
                 ingredientsList.push(
-                    <span onClick={() => onRemove(ingredients[i].id)} >
+                    <span key={id} onClick={() => onRemove(id)} >
                         <Image
                         src={`${getIngredientImage(ingredients[i])}`}
                         height='50rem'
@@ -62,8 +63,9 @@ const Fridge = (props) => {
         while( i < ingredients.length ){
             const ingredientsList = [];
             for( let j = 0 ; j < 4 && i < ingredients.length ; i++ , j++ ){
+                const id = ingredients[i].id;
                 ingredientsList.push(
-                    <span onClick={() => onRemove(ingredients[i].id)} >
+                    <span key={id} onClick={() => onRemove(id)} >
                         <Image
                         src={`${getIngredientImage(ingredients[i])}`}
                         height='50rem'
@@ -85,7 +87,7 @@ const Fridge = (props) => {
         <div className={classes.fridge} >
             <div className={classes.compartment} >
                 {upperCompartment}
-                <div 
+                <div
                 onClick={onSwitch1}
                 className={gateClasses1.join(' ')} >
                     <div className={classes.handle} >
