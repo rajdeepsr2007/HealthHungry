@@ -5,6 +5,7 @@ import RecipeCards from "../../components/recipes/recipe/cards";
 import { searchAutoComplete , getRandomRecipes } from "./util";
 import Alert from '../../components/feedbacks/alert/alert'
 import RecipeFilter from "../../components/recipes/filter";
+import { getFilteredRecipes } from "../../components/util/recipe/filter-util";
 
 function Recipes(props){
 
@@ -30,10 +31,20 @@ function Recipes(props){
             setError(error.message)
         }
     },[]);
+    
 
-    useEffect(() => {
+    useEffect(async () => {
         if( nutrients.length > 0 ){
-            console.log('nutrients');
+            setError(null);
+            try{
+                const data = await getFilteredRecipes(nutrients);
+                if( data.length === 0 ){
+                    return;
+                }
+                setRecipes(data);
+            }catch(error){
+                setError(error.message)
+            }
         }
     },[nutrients])
 
@@ -82,7 +93,7 @@ function Recipes(props){
             {
                  !error && recipes.length > 0  ?   <RecipeCards
                     recipes={recipes}
-                    /> : <Alert type='error'>{props.error}</Alert>
+                    /> : error ? <Alert type='error'>{props.error}</Alert> : null
             }
         </Fragment>    
     )

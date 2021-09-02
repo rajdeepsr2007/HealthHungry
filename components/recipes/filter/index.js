@@ -4,13 +4,7 @@ import { useState } from 'react';
 import Modal from '../../UI/Modal/modal';
 import classes from './filter.module.css';
 import Ranges from '../../inputs/ranges';
-
-const allNutrients = ["Carbs","Protein","Calories","Fat","Alcohol","Caffeine","Copper","Calcium","Choline","Cholesterol","Fluoride","SaturatedFat",
-"VitaminA","VitaminC","VitaminD","VitaminE","VitaminK","VitaminB1","VitaminB2","VitaminB5","VitaminB3","VitaminB6","VitaminB12","Fiber","Folate",
-"FolicAcid","Iodine","Iron","Magnesium","Manganese","Phosphorus","Potassium","Selenium","Sodium","Sugar","Zinc"];
-const units = ["grams", "grams","Kcal","grams","grams","milli-g","milli-g","milli-g","milli-g","milli-g","milli-g","grams","IU","milli-g","micro-g",
-"milli-g","micro-g","milli-g","milli-g","milli-g","milli-g","milli-g","micro-g","grams","micro-g","micro-g","micro-g","milli-g","milli-g","milli-g",
-"milli-g","milli-g","micro-g","milli-g","grams","milli-g"];
+import {allNutrients , units , healthy} from './nutrients';
 
 export default function RecipeFilter(props){
 
@@ -21,7 +15,8 @@ export default function RecipeFilter(props){
                 name : nutrient , 
                 value : 0 , 
                 checked : false,
-                unit : units[index]
+                unit : units[index],
+                good : healthy[index]
             }
         })
     )
