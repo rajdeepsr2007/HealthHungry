@@ -9,12 +9,14 @@ const Modal = (props) => {
 
     if( !props.show ){
         modalClasses.push(classes.hide);
+    }else{
+        modalClasses.push(classes.show)
     }
 
     return (
             <Fragment>
                 <Backdrop show={props.show} onClick={props.onClick}/>
-                <div className={modalClasses.join(' ')}>
+                <div style={props.style} className={modalClasses.join(' ')}>
                     {props.children}
                 </div>
             </Fragment>

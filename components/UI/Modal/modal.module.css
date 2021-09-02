@@ -13,6 +13,8 @@
     padding: 1rem;
     flex-wrap: wrap;
     height: auto;
+    transform: translateY(-200) scale(0);
+    transition: 1s;
 }
 
 @media (max-width : 900px){
@@ -22,9 +24,14 @@
     }
 }
 
+.show{
+    transform: scale(1);
+    transition: 1s;
+}
+
 .hide{
     display: none;
-    top : -200rem;
-    transition: 0.4s;
+    transform : translateY(-200) scale(0);
+    transition: 1s;
 }
 

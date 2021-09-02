@@ -4,6 +4,7 @@ import SearchBar from "../../components/inputs/search/search-bar";
 import RecipeCards from "../../components/recipes/recipe/cards";
 import { searchAutoComplete , getRandomRecipes } from "./util";
 import Alert from '../../components/feedbacks/alert/alert'
+import RecipeFilter from "../../components/recipes/filter";
 
 function Recipes(props){
 
@@ -18,6 +19,8 @@ function Recipes(props){
         show : false
     });
 
+    const [nutrients , setNutrients] = useState([]);
+
     useEffect(async () => {
         setError(null);
         try{
@@ -26,7 +29,13 @@ function Recipes(props){
         }catch(error){
             setError(error.message)
         }
-    },[])
+    },[]);
+
+    useEffect(() => {
+        if( nutrients.length > 0 ){
+            console.log('nutrients');
+        }
+    },[nutrients])
 
 
     const [recipes , setRecipes] = useState([]);
@@ -66,6 +75,9 @@ function Recipes(props){
             />
             <AutoComplete 
             autoComplete={autoComplete}
+            />
+            <RecipeFilter 
+            onChange={(nutrients) => setNutrients(nutrients)}
             />
             {
                  !error && recipes.length > 0  ?   <RecipeCards
