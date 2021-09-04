@@ -17,6 +17,13 @@ export async function getServerSideProps(context){
         permanent : false
       }
     }
+  }else{
+    return{
+      redirect : {
+        destination : '/recipes',
+        permanent : false
+      }
+    }
   }
 
   return {props : {}};

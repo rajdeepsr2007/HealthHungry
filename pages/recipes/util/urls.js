@@ -6,7 +6,7 @@ export const getAutoCompleteUrl = (query , number=5) => {
 } 
 
 export const getRecipeInformationURL = (id) => {
-    return `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}&includeNutrition=false`
+    return `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}&includeNutrition=true`
 }
 
 export const getRecipeInstructionsURL = (id) => {

@@ -1,7 +1,6 @@
 import { Fragment, useState } from "react";
 import TextFields from "../../inputs/text-fields/text-fields";
 import bmiControls from './initialControls';
-import Range from "../../inputs/range";
 
 function copyControls(controls){
     const updatedControls = {};
