@@ -5,13 +5,13 @@ import classes from './recipes.module.css';
 import { getRecipesByIngredients } from '../util';
 import Cards from './cards';
 
-const recipes = (props) => {
+const Recipes = (props) => {
 
     const [page,setPage] = useState('Maximize Used Ingredients');
     const [error,setError] = useState(null);
     const {ingredients} = props;
     const [loading , setLoading] = useState(false);
-    const [recipes , setRecipes] = useState([]);
+    const [recipes , setRecipes] = useState(null);
 
     const options = [
         { label : 'Maximize Used Ingredients' , href : '/wimf#maui' },
@@ -43,14 +43,14 @@ const recipes = (props) => {
                 onToggle={(page) => setPage(page)}
                 page={page}
                 />
-                <Cards
+                {recipes && recipes.length > 0 ?  <Cards
                 recipes={recipes}
                 loading={loading}
                 error={error}
-                />
+                /> : null}
             </div>
         </div>
     )
 }
 
-export default recipes;
+export default Recipes;

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 import Loader from "../../../components/UI/Loader";
 import Spinner from "../../../components/UI/Spinner";
-import { getRecipeInformation } from "../util";
+import { getRecipeInformation } from "../../../util/recipes";
 import Alert from "../../../components/feedbacks/alert/alert";
 import RecipeTitle from "../../../components/recipes/recipe/title/recipe-title";
 import RecipeImage from "../../../components/recipes/recipe/image/recipe-image";
@@ -112,21 +112,6 @@ function Recipe(props){
         </Fragment>
     )
 }
-
-export async function getServerSideProps(context){
-    const session = await getSession({ req : context.req });
-  
-    if( !session ){
-      return{
-        redirect : {
-          destination : '/auth',
-          permanent : false
-        }
-      }
-    }
-
-    return {props : {}};
-  }
 
 
 

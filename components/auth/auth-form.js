@@ -3,7 +3,6 @@ import classes from './auth.module.css';
 import Info from "./info/info";
 import LoginSignup from "./login-signup";
 import Loader from "../UI/Loader";
-import BMI from "./bmi/bmi";
 
 function AuthForm(props){
 
@@ -17,7 +16,7 @@ function AuthForm(props){
            </div>
            <div className={classes.form} >
                 <h1><Logo /> Welcome To HealthHungry</h1>
-                { !bmi ? <LoginSignup {...props} /> : <BMI /> }
+                <LoginSignup {...props} />
                 { loader }
            </div>
        </div>

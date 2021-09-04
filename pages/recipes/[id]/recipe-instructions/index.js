@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Alert from "../../../../components/feedbacks/alert/alert";
 import Loader from "../../../../components/UI/Loader";
 import Spinner from "../../../../components/UI/Spinner";
-import { getRecipeInstructions } from "../../util";
+import { getRecipeInstructions } from "../../../../util/recipes";
 import Instructions from "../../../../components/recipes/recipe/instructions";
 import classes from './instructions.module.css';
 

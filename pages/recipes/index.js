@@ -2,10 +2,11 @@ import { Fragment, useEffect, useState } from "react";
 import AutoComplete from "../../components/inputs/search/autocomplete-box";
 import SearchBar from "../../components/inputs/search/search-bar";
 import RecipeCards from "../../components/recipes/recipe/cards";
-import { searchAutoComplete , getRandomRecipes } from "./util";
+import { searchAutoComplete , getRandomRecipes } from "../../util/recipes/index";
 import Alert from '../../components/feedbacks/alert/alert'
 import RecipeFilter from "../../components/recipes/filter";
 import { getFilteredRecipes } from "../../components/util/recipe/filter-util";
+import { getSession } from "next-auth/client";
 
 function Recipes(props){
 
@@ -98,5 +99,20 @@ function Recipes(props){
         </Fragment>    
     )
 }
+
+export async function getServerSideProps(context){
+    const session = await getSession({ req : context.req });
+  
+    if( !session ){
+      return{
+        redirect : {
+          destination : '/auth',
+          permanent : false
+        }
+      }
+    }
+
+    return {props : {}};
+  }
 
 export default Recipes;

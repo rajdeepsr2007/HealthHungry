@@ -34,10 +34,10 @@ export const parseRecipeInstructionStep = (step) => {
             remaining = word[word.length-2] + word[word.length-1];
         }
         else
-            stepObjects.push(<span> {word}</span>)
+            stepObjects.push(<span key={Math.random()*100000} > {word}</span>)
 
         if( id )
-            stepObjects.push(<Ingredient ingredient={ingredients[id]} word={ingredients[id].name+remaining} />)
+            stepObjects.push(<Ingredient key={`ingredient${id}`} ingredient={ingredients[id]} word={ingredients[id].name+remaining} />)
     }
 
     return stepObjects;

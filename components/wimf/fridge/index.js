@@ -27,7 +27,7 @@ const Fridge = (props) => {
 
     if( !ingredients || ingredients.length === 0 ){
         upperCompartment = [0,1].map(i => {
-            return <div className={classes.rack} ></div>
+            return <div key={`rack1${i}`} className={classes.rack} ></div>
         })
     }else{
         let i = 0;
@@ -67,7 +67,7 @@ const Fridge = (props) => {
                 ingredientsList.push(
                     <span key={id} onClick={() => onRemove(id)} >
                         <Image
-                        src={`${getIngredientImage(ingredients[i])}`}
+                        src={getIngredientImage(ingredients[i])}
                         height='50rem'
                         width='50rem'
                         style={{ borderRadius : '10px', margin : '0.7rem 0.8rem' }}

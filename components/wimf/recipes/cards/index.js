@@ -23,13 +23,13 @@ export default function Cards(props){
     return(
         <div className={classes.cards} >
             {
-                recipes.map(recipe => {
+                recipes && recipes.length > 0 ? recipes.map(recipe => {
                     return <Card 
                            key={recipe.id}
                            recipe={recipe}
                            setIngredients={setIngredients}
                            />
-                })
+                }) : null
             }
             {Ingredients}
         </div>

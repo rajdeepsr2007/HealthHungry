@@ -3,7 +3,7 @@ import Alert from "../../../../components/feedbacks/alert/alert";
 import RecipeCards from "../../../../components/recipes/recipe/cards"
 import Loader from "../../../../components/UI/Loader";
 import Spinner from "../../../../components/UI/Spinner";
-import { getSimilarRecipes } from "../../util";
+import { getSimilarRecipes } from "../../../../util/recipes";
 
 function SimilarRecipes(props){
 

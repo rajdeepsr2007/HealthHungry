@@ -44,7 +44,7 @@ export default function Reviews(props){
     return(
             <Fragment>
                 {reviews.map( review => {
-                    return <ReviewCard review={review} onShowGallery={onShowGallery} />
+                    return <ReviewCard key={review._id} review={review} onShowGallery={onShowGallery} />
                 })}
                 { 
                     gallery ? <ImageSlider

@@ -2,7 +2,7 @@ import { useState , useEffect } from "react";
 import Alert from "../../../../components/feedbacks/alert/alert";
 import Loader from "../../../../components/UI/Loader";
 import Spinner from "../../../../components/UI/Spinner";
-import { getRecipeVideos } from "../../util";
+import { getRecipeVideos } from "../../../../util/recipes";
 import Videos from "../../../../components/recipes/recipe/videos";
 
 export default function RecipeVideos(props){

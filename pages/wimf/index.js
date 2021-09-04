@@ -4,10 +4,11 @@ import AutoComplete from "../../components/inputs/search/autocomplete-box";
 import SearchBar from "../../components/inputs/search/search-bar";
 import Title from "../../components/UI/Title";
 import Ingredients from "../../components/wimf/ingredients";
-import Recipes from "../../components/wimf/recipes";
-import { searchAutoComplete } from "./util";
-import reducer from "./util/reducer";
+import Recipes from "../../components/wimf/recipes/index";
+import { searchAutoComplete } from "../../util/wimf";
+import reducer from "../../util/wimf/reducer";
 import { useRouter } from "next/router";
+import { getSession } from "next-auth/client";
 
 export default function WIMF(){
 

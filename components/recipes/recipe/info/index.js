@@ -2,7 +2,7 @@ import classes from './info.module.css';
 import { useEffect, useState } from "react";
 import RecipeToggler from "../../../inputs/toggler/options toggler";
 import IngredientsBadge from '../../../Badge/ingredients/ingredients';
-import { getRecipeTaste } from '../../../../pages/recipes/util';
+import { getRecipeTaste } from '../../../../util/recipes';
 import { Fragment } from 'react';
 
 export default function RecipeInfo(props){

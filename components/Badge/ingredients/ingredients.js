@@ -6,7 +6,8 @@ export default function IngredientsBadge(props){
             return <IngredientBadge 
                     ingredient={ingredient} 
                     removable={removable} 
-                    onRemove={onRemove} 
+                    onRemove={onRemove}
+                    key={ingredient.image}
                     />
             })  
     )

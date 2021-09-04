@@ -13,6 +13,7 @@ const Ranges = (props) => {
                 checked={nutrient.checked}
                 onChange={onChange}
                 unit={nutrient.unit}
+                key={nutrient.name}
                 />
             )
         })

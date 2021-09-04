@@ -3,7 +3,7 @@ import { getSession } from 'next-auth/client';
 import { signIn } from "next-auth/client";
 import { useRouter } from 'next/router';
 import AuthForm from "../../components/auth/auth-form";
-import { getRandomFoodFacts } from "./util";
+import { getRandomFoodFacts } from "../../util/auth/index";
 
 async function signupUser( email , username , password ){
 

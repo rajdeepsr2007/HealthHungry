@@ -1,4 +1,4 @@
-import { getRandomFoodFactsURL } from "../../recipes/util/urls"
+import { getRandomFoodFactsURL } from "../recipes/urls"
 
 export const getRandomFoodFacts = async (number=1) => {
     return [
